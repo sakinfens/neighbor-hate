@@ -15,14 +15,18 @@ app.use(session({
 
 // Controllers
 const UserController = require('./controllers/users.js');
-app.use('users',UserController);
+app.use('/users',UserController);
 
 const SessionController = require('./controllers/sessions.js')
-app.use('sessions',SessionController)
+app.use('/sessions',SessionController)
 
 // CONNECTION
 mongoose.connect(
-    process.env.DB
+    process.env.DB,
+    {
+        useNewUrlParser:true,
+        useUnifiedTopology:true
+    }
 )
 
 app.listen(3000,(req,res)=>{
