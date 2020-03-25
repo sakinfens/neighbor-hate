@@ -5,7 +5,13 @@ const session = require('express-session')
 require('dotenv').config();
 
 // MiddleWare
+app.use(express.json());
 app.use(express.static('public'));
+app.use(session({
+    secret:'hatred',
+    resave:false,
+    saveUninitialized:false
+}))
 
 // Controllers
 const UserController = require('./controllers/users.js');
