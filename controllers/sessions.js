@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 // Schemas
 const Users = require('../models/users.js')
 
+// PASSWORD CHECK PART 2 
 router.post('/',(req,res)=>{
     Users.findOne({username:req.body.username},(err,data)=>{
         if(foundUser===null){

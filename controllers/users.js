@@ -9,6 +9,7 @@ const Users = require('../models/users.js');
 
 // POST - CREATE USER
 router.post('/',(req,res)=>{
+    req.body.password= bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10));
     Users.create(req.body,(err,data)=>{
         req.session.user = data;
         res.json(data,' created this object');
@@ -17,7 +18,6 @@ router.post('/',(req,res)=>{
 
 // DELETE - DELETE USER
 router.delete('/:id',(req,res)=>{
-    req.body.password= bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10));
     Users.findByIdAndRemove(req.params.id,(err,data)=>{
         res.json(data,' deleted this object')
     })
