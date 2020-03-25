@@ -7,7 +7,11 @@ require('dotenv').config();
 app.use(express.static('public'));
 
 // Controllers
+const UserController = require('./controllers/users.js');
+app.use('users',UserController);
 
+const SessionController = require('./controllers/sessions.js')
+app.use('sessions',SessionController)
 
 // CONNECTION
 mongoose.connect(
