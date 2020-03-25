@@ -8,6 +8,7 @@ app.use(express.static('public'));
 
 // Controllers
 
+
 // CONNECTION
 mongoose.connect(
     process.env.DB
