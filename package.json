@@ -1,0 +1,25 @@
+{
+  "name": "neighbor-hate",
+  "version": "1.0.0",
+  "description": "Steve Akinfenwa",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakinfens/neighbor-hate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakinfens/neighbor-hate/issues"
+  },
+  "homepage": "https://github.com/sakinfens/neighbor-hate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.6"
+  }
+}
