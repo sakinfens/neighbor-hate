@@ -7,6 +7,10 @@ require('dotenv').config();
 app.use(express.static('public'));
 
 // Controllers
+const HateController = require('./controllers/hate.js');
+app.use('hate', HateController);
+
+
 const UserController = require('./controllers/users.js');
 app.use('users',UserController);
 
