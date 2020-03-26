@@ -1,3 +1,4 @@
+
 const app = angular.module('MyApp', []);
 
 app.controller('MyController', ['$http', function($http){
@@ -17,13 +18,14 @@ app.controller('MyController', ['$http', function($http){
         password: this.signupPassword
       }
     }).then(function(response){
-      controller.loggedInUser = response.data;
+        console.log(response.data);
+      // controller.loggedInUser = response.data;
     })
   }
 
   this.login = function(){
     $http({
-      url: '/session',
+      url: '/sessions',
       method: 'POST',
       data: {
         username: this.logInUsername,
@@ -48,7 +50,7 @@ app.controller('MyController', ['$http', function($http){
         description: this.description
       }
     }).then(
-      fubction(response){
+      function(response){
         controller.area = null;
         controller.description = null;
         controller.getHate();
@@ -112,16 +114,16 @@ app.controller('MyController', ['$http', function($http){
 
   $http({
     method: 'GET',
-    url:'/session'
+    url:'/sessions'
   }).then(function(response){
     if(response.data.username){
       controller.loggedInUser = response.data;
     }
   })
 
-  tis.logout = function(){
+  this.logout = function(){
     $http({
-      url: '/session',
+      url: '/sessions',
       method: 'DELETE'
     }).then(function(){
       controller.loggedInUser = false;

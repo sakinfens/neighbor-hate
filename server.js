@@ -1,4 +1,4 @@
-const express=require('express');
+const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session')
@@ -14,15 +14,15 @@ app.use(session({
 }))
 
 // Controllers
-const HateController = require('./controllers/hate.js');
-app.use('/hate', HateController);
+const hateController = require('./controllers/hate.js');
+app.use('/hate', hateController);
 
 
-const UserController = require('./controllers/users.js');
-app.use('/users',UserController);
+const userController = require('./controllers/users.js');
+app.use('/users', userController);
 
-const SessionController = require('./controllers/sessions.js')
-app.use('/sessions',SessionController)
+const sessionController = require('./controllers/sessions.js')
+app.use('/sessions', sessionController)
 
 // CONNECTION
 mongoose.connect(
@@ -33,6 +33,7 @@ mongoose.connect(
     }
 )
 
-app.listen(3000,(req,res)=>{
+
+app.listen(3000,()=>{
     console.log("Neighbor Hate Online - Port 3000")
 })
