@@ -10,7 +10,7 @@ router.get('/', (req,res)=>{
 })
 
 router.post('/', (req,res)=>{
-	Hate.create({},(err,created)=>{
+	Hate.create(req.body,(err,created)=>{
 		res.json(created);
 	})
 })
@@ -22,7 +22,7 @@ router.delete('/:id',(req,res)=>{
 })
 
 router.put('/:id',(req,res)=>{
-	Hate.findByIdAndUpate(req.params.id,req.body,{new:true},(err,updated)=>{
+	Hate.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,updated)=>{
 		res.json(updated);
 	})
 })
