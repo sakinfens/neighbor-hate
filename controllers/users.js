@@ -23,5 +23,4 @@ router.delete('/:id',(req,res)=>{
     })
 });
 
-// EDIT - EDIT PASSWORD
-router.put('/:id',{password})
+// EDIT - EDIT PASSWORDthat
