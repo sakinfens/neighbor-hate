@@ -1,9 +1,9 @@
 // Dependencies
-const express=require('express')
+const express=require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 // Schemas
-const Users = require('../models/users.js')
+const Users = require('../models/users.js');
 
 // PASSWORD CHECK PART 2 
 router.post('/',(req,res)=>{
@@ -28,7 +28,7 @@ router.post('/',(req,res)=>{
 
 router.get('/',(req,res)=>{
     res.json(req.session.user);
-})
+});
 
 router.delete('/',(req,res)=>{
     req.session.destroy(()=>{
@@ -36,6 +36,6 @@ router.delete('/',(req,res)=>{
             destroyed:true
         })
     })
-})
+});
 
 module.exports = router;

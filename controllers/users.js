@@ -1,7 +1,7 @@
 // Dependencies
-const express=require('express')
+const express=require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 // Schemas
 const Users = require('../models/users.js');
 
@@ -24,3 +24,5 @@ router.delete('/:id',(req,res)=>{
 });
 
 // EDIT - EDIT PASSWORDthat
+
+module.exports=router
