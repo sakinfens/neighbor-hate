@@ -26,5 +26,4 @@ router.put('/:id',(req,res)=>{
 		res.json(updated);
 	})
 })
-
 module.exports = router;

@@ -7,4 +7,4 @@ const hateSchema = new mongoose.Schema({
 
 const Hate = mongoose.model('Hate', hateSchema);
 
-module.exports = Hate
+module.exports = Hate;
