@@ -12,14 +12,14 @@ router.post('/',(req,res)=>{
     req.body.password= bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10));
     Users.create(req.body,(err,data)=>{
         req.session.user = data;
-        res.json(data,' created this object');
+        res.json(data);
     })
 })
 
 // DELETE - DELETE USER
 router.delete('/:id',(req,res)=>{
     Users.findByIdAndRemove(req.params.id,(err,data)=>{
-        res.json(data,' deleted this object')
+        res.json(data)
     })
 });
 

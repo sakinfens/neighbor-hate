@@ -17,10 +17,15 @@ app.controller('MyController', ['$http', function ($http) {
         username: this.signupUsername,
         password: this.signupPassword
       }
-    }).then(function (response) {
-      console.log(response.data);
+    }).then(
+      function (response) {
       controller.loggedInUser = response.data;
-    })
+    },
+      (error)=>{
+        console.log(error);
+      }
+
+    )
   }
 
   this.login = function () {
