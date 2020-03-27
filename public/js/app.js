@@ -71,7 +71,7 @@ app.controller('MyController', ['$http', function ($http) {
 
   this.deleteHate = function (hate) {
     $http({
-      method: 'DELTE',
+      method: 'DELETE',
       url: '/hate/' + hate._id
     }).then(
       function () {
