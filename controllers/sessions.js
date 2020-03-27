@@ -8,7 +8,7 @@ const Users = require('../models/users.js');
 // PASSWORD CHECK PART 2 
 router.post('/',(req,res)=>{
     Users.findOne({username:req.body.username},(err,data)=>{
-        if(foundUser===null){
+        if(data===null){
             res.json({
                 message:'user not found'
             })

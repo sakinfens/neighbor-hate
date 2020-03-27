@@ -16,13 +16,4 @@ router.post('/',(req,res)=>{
     })
 })
 
-// DELETE - DELETE USER
-router.delete('/:id',(req,res)=>{
-    Users.findByIdAndRemove(req.params.id,(err,data)=>{
-        res.json(data)
-    })
-});
-
-// EDIT - EDIT PASSWORDthat
-
 module.exports=router
