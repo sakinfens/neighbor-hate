@@ -40,6 +40,15 @@
       </form>
   </section>
 
+  <section ngif="ctrl.loggedInUser!==false">
+    <p>The place where you come to hate on your neighbors! Cause... damn they can be annoying sometimes! Tell us all the beef you have with yours!</p>
+
+    <form ng-submit="ctrl.createHate()">
+      <div>
+        <p></p>
+      </div>
+    </form>
+  </section>
 
 </body>
 
