@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session')
 require('dotenv').config();
 
-// MiddleWare
+// MiddleWare ------------------------
 app.use(express.json());
 app.use(express.static('public'));
 app.use(session({
@@ -13,7 +13,7 @@ app.use(session({
     saveUninitialized:false
 }))
 
-// Controllers
+// Controllers ---------------------------
 const hateController = require('./controllers/hate.js');
 app.use('/hate', hateController);
 
@@ -24,7 +24,7 @@ app.use('/users', userController);
 const sessionController = require('./controllers/sessions.js')
 app.use('/sessions', sessionController)
 
-// CONNECTION
+// CONNECTIONS -------------------------
 mongoose.connect(
     process.env.DB,
     {
@@ -32,7 +32,10 @@ mongoose.connect(
         useUnifiedTopology:true
     }
 )
-
+// Report Connection
+mongoose.connection.once('open',()=>{
+    console.log('Mongoose Online')
+})
 
 app.listen(3000,()=>{
     console.log("Neighbor Hate Online - Port 3000")

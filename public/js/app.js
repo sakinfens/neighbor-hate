@@ -1,7 +1,7 @@
 
 const app = angular.module('MyApp', []);
 
-app.controller('MyController', ['$http', function($http){
+app.controller('MyController', ['$http', function ($http) {
   this.area = null;
   this.description = null;
   this.loggedInUser = false;
@@ -9,7 +9,7 @@ app.controller('MyController', ['$http', function($http){
 
   const controller = this;
 
-  this.signup = function(){
+  this.signup = function () {
     $http({
       url: '/users',
       method: 'POST',
@@ -17,13 +17,13 @@ app.controller('MyController', ['$http', function($http){
         username: this.signupUsername,
         password: this.signupPassword
       }
-    }).then(function(response){
-        console.log(response.data);
-      // controller.loggedInUser = response.data;
+    }).then(function (response) {
+      console.log(response.data);
+      controller.loggedInUser = response.data;
     })
   }
 
-  this.login = function(){
+  this.login = function () {
     $http({
       url: '/sessions',
       method: 'POST',
@@ -31,8 +31,8 @@ app.controller('MyController', ['$http', function($http){
         username: this.logInUsername,
         password: this.logInPassword
       }
-    }).then(function(response){
-      if(response.data.username){
+    }).then(function (response) {
+      if (response.data.username) {
         controller.loggedInUser = response.data
       } else {
         controller.logInUsername = null;
@@ -41,7 +41,7 @@ app.controller('MyController', ['$http', function($http){
     });
   }
 
-  this.createHate = function(){
+  this.createHate = function () {
     $http({
       method: 'POST',
       url: '/hate',
@@ -50,32 +50,32 @@ app.controller('MyController', ['$http', function($http){
         description: this.description
       }
     }).then(
-      function(response){
+      function (response) {
         controller.area = null;
         controller.description = null;
         controller.getHate();
       },
-      function(error){
+      function (error) {
         console.log(error);
       }
     )
   }
 
-  this.deleteHate = function(hate){
+  this.deleteHate = function (hate) {
     $http({
       method: 'DELTE',
       url: '/hate/' + hate._id
     }).then(
-      function(){
+      function () {
         controller.getHate();
       },
-      function(error){
+      function (error) {
         console.log(error);
       }
     )
   }
 
-  this.editHate = function(hate){
+  this.editHate = function (hate) {
     $http({
       method: 'PUT',
       url: '/hate/' + hate._id,
@@ -84,27 +84,27 @@ app.controller('MyController', ['$http', function($http){
         description: this.updatedDescription
       }
     }).then(
-      function(response){
+      function (response) {
         controller.updatedArea = null;
         controller.updatedDescription = null;
         controller.indexOfEditFormToShow = null;
         controller.getHate();
       },
-      function(error){
+      function (error) {
         console.log(error);
       }
     )
   }
 
-  this.getHate = function(){
+  this.getHate = function () {
     $http({
-      method:'Get',
+      method: 'Get',
       url: '/hate',
     }).then(
-      function(response){
+      function (response) {
         controller.hates = response.data;
       },
-      function(error){
+      function (error) {
         console.log(error);
       }
     )
@@ -114,18 +114,18 @@ app.controller('MyController', ['$http', function($http){
 
   $http({
     method: 'GET',
-    url:'/sessions'
-  }).then(function(response){
-    if(response.data.username){
+    url: '/sessions'
+  }).then(function (response) {
+    if (response.data.username) {
       controller.loggedInUser = response.data;
     }
   })
 
-  this.logout = function(){
+  this.logout = function () {
     $http({
       url: '/sessions',
       method: 'DELETE'
-    }).then(function(){
+    }).then(function () {
       controller.loggedInUser = false;
     })
   }

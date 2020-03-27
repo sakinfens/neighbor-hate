@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MyApp">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js" charset="utf-8"></script>
-    <script src="js/app.js" charset="utf-8"></script>
-    <!-- <link rel="stylesheet" href="/css/app.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js" charset="utf-8"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+  <!-- <link rel="stylesheet" href="/css/app.css"> -->
 </head>
-<body ng-controller="MyController as ctrl">
-    <h1>Neighbor Hate</h1>
-    <h2>Haters gonna hate</h2>
+
+<body ng-controller="MyController as ctrl" style="text-align: center; margin: auto;">
+
+  <h1>Neighbor Hate</h1>
+
+  <h2>Haters gonna hate</h2>
+  <legend>
     <h3>Sign Up</h3>
     <form ng-submit="ctrl.signup()">
-      Username: <input type="text" ng-model="ctrl.signupUsername" /><br/>
-      Password: <input type="password" ng-model="ctrl.signupPassword" /><br/>
+      Username: <input type="text" ng-model="ctrl.signupUsername" /><br /><br>
+      Password: <input type="password" ng-model="ctrl.signupPassword" /><br /><br>
       <input type="submit" value="Start Hating">
     </form>
+  </legend>
+  <br>
+  <br>
+
+  <legend>
     <h3>Log In</h3>
+
     <form ng-submit="ctrl.login()">
-      Username: <input type="text" ng-model="ctrl.logInUsername" /><br/>
-      Password: <input type="password" ng-model="ctrl.logInPassword" /><br/>
+      Username: <input type="text" ng-model="ctrl.logInUsername" /><br /><br>
+      Password: <input type="password" ng-model="ctrl.logInPassword" /><br /><br>
       <input type="submit" value="Resume Hating">
     </form>
+  </legend>
+
+
 </body>
+
 </html>

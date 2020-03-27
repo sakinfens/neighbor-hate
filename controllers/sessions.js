@@ -13,10 +13,10 @@ router.post('/',(req,res)=>{
                 message:'user not found'
             })
         } else {
-            const PassCheck = bcrypt.compareSync(req.body.password,foundUser.passowrd)
+            const PassCheck = bcrypt.compareSync(req.body.password,data.password)
             if(PassCheck) {
-                req.session.user = foundUser;
-                res.json(foundUser);
+                req.session.user = data;
+                res.json(data);
             } else {
                 res.json({
                     message:'wrong password, try again'
