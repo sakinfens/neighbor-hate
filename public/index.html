@@ -44,11 +44,20 @@
     <p>The place where you come to hate on your neighbors! Cause... damn they can be annoying sometimes! Tell us all the beef you have with yours!</p>
 
     <button ng-click="ctrl.createHate()">Create Hate</button>
+
     <button ng-click="ctrl.logout()">Stop Hating</button>
+
     <div ng-repeat="hate in ctrl.hates" class="hatepost">
       <h4>{{hate.area}}</h4>
       <p>{{hate.description}}</p>
-      <button ng-click="ctrl.editHate(hate)" type="submit">Edit Hate</button>
+      <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index" type="submit">Edit Hate</button>
+
+      <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editHate(hate)">
+        <input type="text" ng-model="ctrl.updatedArea" placeholder="What area are you in?" /><br/>
+        <input type="text" ng-model="ctrl.updatedDescription" placeholder="Share your hate!"/><br/>
+        <input type="submit" value="Update Hate" />
+      </form>
+
       <button ng-click="ctrl.deleteHate(hate)" type="submit">Delete Hate</button>
     </div>
     <form ng-submit="ctrl.createHate()">
