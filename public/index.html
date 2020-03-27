@@ -43,7 +43,11 @@
   <section ng-if="ctrl.loggedInUser!==false">
     <p>The place where you come to hate on your neighbors! Cause... damn they can be annoying sometimes! Tell us all the beef you have with yours!</p>
 
-    <button ng-click="ctrl.createHate()">Create Hate</button>
+    <form ng-submit="ctrl.createHate()">
+      <input type="text" ng-model="ctrl.area" placeholder="What area are you in?" /><br/>
+      <input type="text" ng-model="ctrl.description" placeholder="Share your hate!" /><br/>
+      <input type="submit" value="Create Hate">
+    </form>
 
     <button ng-click="ctrl.logout()">Stop Hating</button>
 
