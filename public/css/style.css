@@ -1,0 +1,52 @@
+body{
+	background-color: ;
+	margin: 0;
+}
+.start{
+	height: 60vh;
+	background-color:#f9e9de;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+}
+ .start img{
+ 	margin: 50px;
+	height: 50vh;
+}
+.start div{
+	width: 40vw;
+}
+.explain{
+	color: 	#cc6c5c;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section.cards{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+}
+.card{
+	border: 1px solid black;
+	width: 33%;
+}
+.end{
+	height: 50vh;
+	background-color: 	#f9e9de;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.end img{
+	width: 30vw;
+}
+.end div{
+	margin: 50px;
+}

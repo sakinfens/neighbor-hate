@@ -7,20 +7,20 @@
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
-  <!-- <link rel="stylesheet" href="/css/app.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-controller="MyController as ctrl" style="text-align: center; margin: auto;">
+<body ng-controller="MyController as ctrl">
 
   <h1>Neighbor Hate</h1>
 
-  <h2>Haters gonna hate</h2>
-
   <!-- LOGIN INFROMATION -->
   <section ng-if="ctrl.loggedInUser==false">
-    <form ng-submit="ctrl.signup()" style="width:50%; margin:auto;">
+
+
+    <form ng-submit="ctrl.signup()" style="margin:auto;">
       <fieldset>
-        <legend style="margin: auto;">
+        <legend>
           <h3>Sign Up</h3>
         </legend>
         Username: <input type="text" ng-model="ctrl.signupUsername" /><br /><br>
@@ -28,6 +28,9 @@
         <input type="submit" value="Start Hating">
       </fieldset>
     </form>
+
+
+
     <br>
     <br>
    <form ng-submit="ctrl.login()">
@@ -41,17 +44,24 @@
   </section>
   <!--=============== AFTER USER LOGS IN ========================== -->
   <section ng-if="ctrl.loggedInUser!==false">
-    <p>The place where you come to hate on your neighbors! Cause... damn they can be annoying sometimes! Tell us all the beef you have with yours!</p>
 
-    <form ng-submit="ctrl.createHate()">
-      <input type="text" ng-model="ctrl.area" placeholder="What area are you in?" /><br/>
-      <input type="text" ng-model="ctrl.description" placeholder="Share your hate!" /><br/>
-      <input type="submit" value="Create Hate">
-    </form>
 
-    <button ng-click="ctrl.logout()">Stop Hating</button>
 
-    <div ng-repeat="hate in ctrl.hates" class="hatepost">
+    <section class="start">
+
+      <img src="https://hometown-tourist.com/wp-content/uploads/2015/01/Manhattan-Neighborhood-Street-Scene.jpg">
+      <div>
+        <h2>Haters gonna hate</h2>
+        <p>The place where you come to hate on your neighbors! Cause... damn they can be annoying sometimes! Tell us all the beef you have with yours!</p>
+      </div>
+    </section>
+
+    <div class="explain">
+      <h3>Hate Post</h3>
+      <p>Here's where you will see a whole comminity full of haters</p>
+    </div>
+    <section class="cards">
+    <div class="card" ng-repeat="hate in ctrl.hates" class="hatepost">
       <h4>{{hate.area}}</h4>
       <p>{{hate.description}}</p>
       <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index" type="submit">Edit Hate</button>
@@ -64,11 +74,23 @@
 
       <button ng-click="ctrl.deleteHate(hate)" type="submit">Delete Hate</button>
     </div>
-    <form ng-submit="ctrl.createHate()">
+  </section>
+
+
+    <section class="end">
+      <img src="https://www.gannett-cdn.com/-mm-/903f74bae66bcaeaabf85b816f6e76eff00f8180/c=0-396-3862-2578/local/-/media/2015/05/27/Rochester/Rochester/635683189152009345-neighbors.jpg?width=3200&height=1680&fit=crop">
       <div>
-        <p></p>
-      </div>
-    </form>
+      <h3>Start Hating</h3>
+      <form ng-submit="ctrl.createHate()">
+      </form>
+      <form ng-submit="ctrl.createHate()">
+        <input type="text" ng-model="ctrl.area" placeholder="What area are you in?" /><br/>
+        <input type="text" ng-model="ctrl.description" placeholder="Share your hate!" /><br/>
+        <input type="submit" value="Create Hate">
+      </form>
+    </div>
+    </section>
+    <button ng-click="ctrl.logout()">Stop Hating</button>
   </section>
 
 </body>
