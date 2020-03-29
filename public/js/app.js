@@ -6,6 +6,7 @@ app.controller('MyController', ['$http', function ($http) {
   this.description = null;
   this.loggedInUser = false;
   this.indexOfEditFormToShow = null;
+  this.loginShow = false;
 
   const controller = this;
 
@@ -26,6 +27,10 @@ app.controller('MyController', ['$http', function ($http) {
       }
 
     )
+  }
+
+  this.showLogin = () =>{
+    this.loginShow = !this.loginShow
   }
 
   this.login = function () {
