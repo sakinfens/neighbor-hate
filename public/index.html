@@ -11,8 +11,10 @@
 </head>
 
 <body ng-controller="MyController as ctrl">
-
-  <h1>Neighbor Hate</h1>
+  <nav>
+    <h1>Neighbor Hate</h1>
+    <button ng-click="ctrl.logout()">Stop Hating</button>
+  </nav>
 
   <!-- LOGIN INFROMATION -->
   <section ng-if="ctrl.loggedInUser==false">
@@ -90,7 +92,6 @@
       </form>
     </div>
     </section>
-    <button ng-click="ctrl.logout()">Stop Hating</button>
   </section>
 
 </body>
