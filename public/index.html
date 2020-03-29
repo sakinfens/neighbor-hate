@@ -15,9 +15,9 @@
   <h1>Neighbor Hate</h1>
 
   <!-- LOGIN INFROMATION -->
-  <section ng-if="ctrl.loggedInUser==false">
+  <section ng-if="ctrl.loggedInUser==false" style="margin:auto;width:50%">
 
-    <form ng-submit="ctrl.signup()" style="margin:auto;">
+    <form ng-submit="ctrl.signup()" ng-if="!ctrl.loginShow">
       
       <fieldset>
         <legend>
@@ -29,18 +29,22 @@
       </fieldset>
     </form>
 
-
-
     <br>
     <br>
-   <form ng-submit="ctrl.login()">
-    <legend>
-      <h3>Log In</h3>
-    </legend>
-        Username: <input type="text" ng-model="ctrl.logInUsername" /><br /><br>
-        Password: <input type="password" ng-model="ctrl.logInPassword" /><br /><br>
-        <input type="submit" value="Resume Hating">
-      </form>
+    <form ng-submit="ctrl.login()" ng-if="ctrl.loginShow">
+      <fieldset>
+      <legend>
+        <h3>Log In</h3>
+      </legend>
+      Username: <input type="text" ng-model="ctrl.logInUsername" /><br /><br>
+      Password: <input type="password" ng-model="ctrl.logInPassword" /><br /><br>
+      <input type="submit" value="Resume Hating">
+    </fieldset>
+    </form>
+    <br>
+    <!-- Buttons to toggle login or sign up -->
+    <button ng-click="ctrl.showLogin()" ng-if="ctrl.loginShow">Sign Up</button>
+    <button ng-click="ctrl.showLogin()" ng-if="!ctrl.loginShow">Login</button>
   </section>
   <!--=============== AFTER USER LOGS IN ``````````````````````````````````````````````````````````````````````````````````` ========================== -->
   <section ng-if="ctrl.loggedInUser!==false">
@@ -83,6 +87,7 @@
       <h3>Start Hating</h3>
       <form ng-submit="ctrl.createHate()">
       </form>
+      
       <form ng-submit="ctrl.createHate()">
         <input type="text" ng-model="ctrl.area" placeholder="What area are you in?" /><br/>
         <input type="text" ng-model="ctrl.description" placeholder="Share your hate!" /><br/>
