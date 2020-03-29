@@ -4,9 +4,11 @@ const app = angular.module('MyApp', []);
 app.controller('MyController', ['$http', function ($http) {
   this.area = null;
   this.description = null;
+  this.zip = null;
   this.loggedInUser = false;
   this.indexOfEditFormToShow = null;
   this.loginShow = false;
+  this.searchZip = null;
 
   const controller = this;
 
@@ -60,12 +62,14 @@ app.controller('MyController', ['$http', function ($http) {
       url: '/hate',
       data: {
         area: this.area,
-        description: this.description
+        description: this.description,
+        zip: this.zip
       }
     }).then(
       function (response) {
         controller.area = null;
         controller.description = null;
+        controller.zip = null;
         controller.getHate();
       },
       function (error) {
@@ -94,12 +98,14 @@ app.controller('MyController', ['$http', function ($http) {
       url: '/hate/' + hate._id,
       data: {
         area: this.updatedArea,
-        description: this.updatedDescription
+        description: this.updatedDescription,
+        zip: this.updatedZip
       }
     }).then(
       function (response) {
         controller.updatedArea = null;
         controller.updatedDescription = null;
+        controller.updatedZip = null;
         controller.indexOfEditFormToShow = null;
         controller.getHate();
       },
@@ -141,6 +147,10 @@ app.controller('MyController', ['$http', function ($http) {
     }).then(function () {
       controller.loggedInUser = false;
     })
+  }
+
+  this.zipSearch = function () {
+    controller.searchZip = this.myZip;
   }
 
 }]);

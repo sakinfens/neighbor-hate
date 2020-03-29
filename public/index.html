@@ -13,14 +13,20 @@
 <body ng-controller="MyController as ctrl">
   <nav>
     <h1>Neighbor Hate</h1>
-    <button ng-click="ctrl.logout()">Stop Hating</button>
+    <button ng-if="ctrl.loggedInUser" ng-click="ctrl.logout()">Stop Hating</button>
+    <h3 ng-if="ctrl.loggedInUser">
+    <form ng-submit="ctrl.zipSearch()">
+      Search by zip: <input class="searchbar" type="text" placeholder="What zipcode are you hating in?" ng-model="ctrl.myZip">
+      <input type="submit" value="search">
+    </form>
+    </h3>
   </nav>
 
   <!-- LOGIN INFROMATION -->
   <section ng-if="ctrl.loggedInUser==false" style="margin:auto;width:50%">
 
     <form ng-submit="ctrl.signup()" ng-if="!ctrl.loginShow">
-      
+
       <fieldset>
         <legend>
           <h3>Sign Up</h3>
@@ -67,14 +73,16 @@
       <p>Here's where you will see a whole comminity full of haters</p>
     </div>
     <section class="cards">
-    <div class="card" ng-repeat="hate in ctrl.hates" class="hatepost">
+    <div class="card" class="hatepost" ng-repeat="hate in ctrl.hates | filter: {'zip' : ctrl.searchZip}">
       <h4>{{hate.area}}</h4>
       <p>{{hate.description}}</p>
+      <h4>{{hate.zip}}</h4>
       <button ng-if="$index !== ctrl.indexOfEditFormToShow" ng-click="ctrl.indexOfEditFormToShow = $index" type="submit">Edit Hate</button>
 
       <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editHate(hate)">
         <input type="text" ng-model="ctrl.updatedArea" placeholder="What area are you in?" /><br/>
         <input type="text" ng-model="ctrl.updatedDescription" placeholder="Share your hate!"/><br/>
+        <input type="number" ng-model="ctrl.updatedZip" placeholder="What's your zip?" /><br/>
         <input type="submit" value="Update Hate" />
       </form>
 
@@ -89,10 +97,11 @@
       <h3>Start Hating</h3>
       <form ng-submit="ctrl.createHate()">
       </form>
-      
+
       <form ng-submit="ctrl.createHate()">
         <input type="text" ng-model="ctrl.area" placeholder="What area are you in?" /><br/>
         <input type="text" ng-model="ctrl.description" placeholder="Share your hate!" /><br/>
+        <input type="number" ng-model="ctrl.zip" placeholder="What's your zip?" /><br/>
         <input type="submit" value="Create Hate">
       </form>
     </div>

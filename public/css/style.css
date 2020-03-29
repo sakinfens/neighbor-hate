@@ -50,3 +50,7 @@ section.cards{
 .end div{
 	margin: 50px;
 }
+.searchbar{
+	width: 175px;
+	line-height: 17px;
+}
