@@ -39,6 +39,6 @@ mongoose.connection.once('open',()=>{
     console.log('Mongoose Online')
 })
 
-app.listen(3000,()=>{
-    console.log("Neighbor Hate Online - Port 3000")
+app.listen(3010,()=>{
+    console.log("Neighbor Hate Online - Port 3010")
 })
