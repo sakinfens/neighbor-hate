@@ -2,13 +2,16 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session')
+const MongoStore=require('connect-mongo')(session);
 require('dotenv').config();
 
 // MiddleWare ------------------------
 app.use(express.json());
 app.use(express.static('public'));
+
 app.use(session({
     secret:'hatred',
+    store: new MongoStore({mongooseConnection:mongoose.connection}),
     resave:false,
     saveUninitialized:false
 }))
