@@ -11,8 +11,6 @@ app.use(express.static('public'));
 // Database name present in the connection string will be used
 app.use(express.session({
     secret:'hatred',
-    storage:'mongodb',
-    instance:mongoose,
     name:'sessionId',
     resave:false,
     saveUninitialized:false
