@@ -1,17 +1,17 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const session = require('express-session')
-const MongoStore=require('connect-mongo')(session);
+const session = require('express-session');
 require('dotenv').config();
 
 // MiddleWare ------------------------
 app.use(express.json());
 app.use(express.static('public'));
-app.use(cookieParser());
+
 // Database name present in the connection string will be used
 app.use(session({
     secet:'hatred',
+    name:'sessionId',
     resave:false
 }));
 
