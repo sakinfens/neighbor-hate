@@ -9,9 +9,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Database name present in the connection string will be used
-app.use(express.session({
+app.use(session({
     secret:'hatred',
-    name:'sessionId',
     resave:false,
     saveUninitialized:false
 }));
@@ -39,6 +38,6 @@ mongoose.connection.once('open',()=>{
     console.log('Mongoose Online')
 })
 
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.port,()=>{
     console.log("Neighbor Hate Online - Port 3000")
 })
