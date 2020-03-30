@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 require('dotenv').config();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 8000;
 
 // MiddleWare ------------------------
 app.use(express.json());
