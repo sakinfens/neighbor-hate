@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 // Database name present in the connection string will be used
 app.use(session({
-    store: new MongoStore({ client: clientInstance })
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // Controllers ---------------------------
