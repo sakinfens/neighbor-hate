@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 require('dotenv').config();
+const port = process.env.port || 3000;
 
 // MiddleWare ------------------------
 app.use(express.json());
@@ -38,6 +39,6 @@ mongoose.connection.once('open',()=>{
     console.log('Mongoose Online')
 })
 
-app.listen(process.env.port,()=>{
+app.listen(port,()=>{
     console.log("Neighbor Hate Online - Port 3000")
 })
