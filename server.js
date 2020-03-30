@@ -19,7 +19,6 @@ app.use(session({
 const hateController = require('./controllers/hate.js');
 app.use('/hate', hateController);
 
-
 const userController = require('./controllers/users.js');
 app.use('/users', userController);
 
