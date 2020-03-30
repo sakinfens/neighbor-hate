@@ -8,10 +8,11 @@ require('dotenv').config();
 // MiddleWare ------------------------
 app.use(express.json());
 app.use(express.static('public'));
-
+app.use(cookieParser());
 // Database name present in the connection string will be used
 app.use(session({
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    secet:'hatred',
+    resave:false
 }));
 
 // Controllers ---------------------------
