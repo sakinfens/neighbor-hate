@@ -9,11 +9,10 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.static('public'));
 
+// Database name present in the connection string will be used
 app.use(session({
-    store: new MongoStore({
-        url: process.env.DB
-    })
-}))
+    store: new MongoStore({ client: clientInstance })
+}));
 
 // Controllers ---------------------------
 const hateController = require('./controllers/hate.js');
