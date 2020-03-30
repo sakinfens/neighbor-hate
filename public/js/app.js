@@ -8,7 +8,7 @@ app.controller('MyController', ['$http', function ($http) {
   this.loggedInUser = false;
   this.indexOfEditFormToShow = null;
   this.loginShow = false;
-  this.searchZip = null;
+  this.searchZip = "";
 
   const controller = this;
 
