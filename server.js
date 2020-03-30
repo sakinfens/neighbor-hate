@@ -10,9 +10,10 @@ app.use(express.static('public'));
 
 // Database name present in the connection string will be used
 app.use(session({
-    secet:'hatred',
+    secret:'hatred',
     name:'sessionId',
-    resave:false
+    resave:false,
+    saveUninitialized:false
 }));
 
 // Controllers ---------------------------
