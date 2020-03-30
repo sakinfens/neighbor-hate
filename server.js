@@ -10,12 +10,9 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use(session({
-    secret:'hatred',
     store: new MongoStore({
         url: process.env.DB
-    }),
-    resave:false,
-    saveUninitialized:false
+    })
 }))
 
 // Controllers ---------------------------
