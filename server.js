@@ -28,7 +28,7 @@ app.use('/sessions', sessionController)
 
 // CONNECTIONS -------------------------
 mongoose.connect(
-    process.env.DB,
+    process.env.DATABASE_URL,
     {
         useNewUrlParser:true,
         useUnifiedTopology:true
@@ -40,5 +40,5 @@ mongoose.connection.once('open',()=>{
 })
 
 app.listen(port,()=>{
-    console.log("Neighbor Hate Online - Port 3000")
+    console.log(`Neighbor Hate Online - ${port}`)
 })
